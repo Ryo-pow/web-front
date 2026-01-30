@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    
+    <style>
+        /* ページ全体の背景と配置 */
+        body {
+            background-color: #a4e1d3; /* 薄い緑の背景 */
+            font-family: sans-serif;   /* 見やすいゴシック体 */
+            display: flex;             /* 中身を整列させる魔法の呪文 */
+            justify-content: center;   /* 左右の真ん中に */
+            align-items: center;       /* 上下の真ん中に */
+            height: 100vh;             /* 画面いっぱいの高さ */
+            margin: 0;
+        }
+
+        /* 白いカードのデザイン */
+        .card {
+            background-color: white;
+            padding: 40px;             /* 内側の余白 */
+            border-radius: 16px;       /* 角を丸くする */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 影をつける */
+            text-align: center;        /* 文字を真ん中揃え */
+            width: 300px;
+            /* 変化をアニメーションさせる設定 */
+            transition: all 0.3s ease;
+        }
+
+        /* 名前のデザイン */
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* 自己紹介文のデザイン */
+        p {
+            color: #666;
+            line-height: 1.5;
+        }
+        button {
+            background-color: #333;
+            color:white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top:20px;
+            cursor:pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card", id="myCard">
+        <h1>見出し</h1>
+        <p>
+            コメント
+        </p>
+        <button id="colorBtn">パワーアップ!</button>
+    </div>
+
+    <script>
+        // HTMLの中から操作したい部品を探してきて変数に入れる
+        const card = document.getElementById('myCard');
+        const btn = document.getElementById('colorBtn');
+
+        // ボタンがクリックされたらという命令を書く
+        btn.addEventListener('click', () => {
+            card.style.backgroundColor = '#ffc0cb';
+            card.querySelector('h1').innerText = '超パワーフル!';
+            console.log('ボタンがクリックされました');
+            alert('パワーアップ完了！');
+        })
+    </script>
+</body>
+</html>

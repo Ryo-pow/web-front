@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            height: 100vh;
+            background-color: #2c3e50;
+            color: white;
+        }
+        .container {
+            text-align: center;
+        }
+        /* 数字の表示部分 */
+        #count-display {
+            font-size:100px;
+            font-weight: bold;
+            margin: 20px;
+        }
+        /* ボタンのデザイン */
+        button {
+            font-size: 24px;
+            padding:10px 30px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            margin:0 10px;
+            transition: transform 0.1s;
+        }
+        /* ボタンを押したときに凹むアニメーション */
+        button:active {
+            transform: scale(0.95);
+        }
+        #plus-btn {background-color: #3498db; color: white; }
+        #minus-btn {background-color:#e74c3c; color: white; }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>カウンター</h2>
+        <div id="count-display">0</div>
+
+        <button id="plus-btn">+</button>
+        <button id="minus-btn">-</button>
+    </div>
+
+    <script>
+        const display = document.getElementById('count-display');
+        const plusBtn = document.getElementById('plus-btn');
+        const minusbtn = document.getElementById('minus-btn');
+
+        // 数字を記憶しておく箱を用意する
+        let count = 0;
+
+        // プラスボタンが押されたときの処理
+        plusBtn.addEventListener('click', () => {
+            count = count + 1;
+            display.innerText = count;
+            console.log("現在の数字:", count);
+        });
+
+        // マイナスボタンが押されたときの処理
+        minusBtn.addEventListener('click', () => {
+            count = count - 1;
+            display.innerText = count;
+            console.log("現在の数字:" ,count);
+            });
+    </script>
+</body>
+</html>
