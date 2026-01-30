@@ -39,6 +39,7 @@
         }
         #plus-btn {background-color: #3498db; color: white; }
         #minus-btn {background-color:#e74c3c; color: white; }
+        #reset-btn {background-color: #95a5a6; color: white;}
     </style>
 </head>
 <body>
@@ -49,12 +50,14 @@
 
         <button id="plus-btn">+</button>
         <button id="minus-btn">-</button>
+        <button id="reset-btn">リセット</button>
     </div>
 
     <script>
         const display = document.getElementById('count-display');
         const plusBtn = document.getElementById('plus-btn');
-        const minusbtn = document.getElementById('minus-btn');
+        const minusBtn = document.getElementById('minus-btn');
+        const resetBtn = document.getElementById('reset-btn');
 
         // 数字を記憶しておく箱を用意する
         let count = 0;
@@ -62,16 +65,36 @@
         // プラスボタンが押されたときの処理
         plusBtn.addEventListener('click', () => {
             count = count + 1;
+            if (count > 10) {
+                display.style.color = 'yellow';
+            } else {
+                display.style.color = 'white';
+            }
             display.innerText = count;
             console.log("現在の数字:", count);
         });
 
         // マイナスボタンが押されたときの処理
-        minusbtn.addEventListener('click', () => {
+        minusBtn.addEventListener('click', () => {
             count = count - 1;
+            if (count < 0) {
+                count = 0;
+            }
             display.innerText = count;
+            if (count > 10) {
+                display.style.color = 'yellow';
+            } else {
+                display.style.color = 'white';
+            }
             console.log("現在の数字:" ,count);
         });
+
+        resetBtn.addEventListener('click', () => {
+            count = 0;
+            display.innerText = count;
+            display.style.color = 'white';
+            console.log("リセットされました");
+        })
     </script>
 </body>
 </html>
